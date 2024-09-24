@@ -23,6 +23,7 @@ public:
     void add(Contact ob);
     void search(PhoneBook );
     void exit();
+    void desplayall();
 
 };
 

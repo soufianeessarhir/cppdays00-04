@@ -19,25 +19,49 @@ void display(void)
     std::cout<<"type [EXIT]   :: to exit from the program"<<std::endl;
 
 }
-void displayall(PhoneBook ob)
+void PhoneBook::desplayall()
 {
-    std::cout<<"all"<<std::endl;
+    std::cout << std::setw(10) << std::right << "Index" << std::setw(10) << std::right << "|"
+         << std::setw(10) << std::right << "First Name" << std::setw(10) << std::right << "|"
+         << std::setw(10) << std::right << "Last Name" << std::setw(10) << std::right << "|"
+         << std::setw(10) << std::right << "Nickname" << std::endl;
+    for(int i = 0;i < count%8;i++)
+    {
+        std::cout << std::setw(10) << std::right << i << std::setw(10) << std::right << "|"
+             << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name()) << std::setw(10) << std::right << "|"
+             << std::setw(10) << std::right << (PhoneBook::arr[i].get_last_name().length() > 10 ? PhoneBook::arr[i].get_last_name().substr(0, 9) + "." : PhoneBook::arr[i].get_last_name()) << std::setw(10) << std::right << "|"
+             << std::setw(10) << std::right << (PhoneBook::arr[i].get_nickname().length() > 10 ? PhoneBook::arr[i].get_nickname().substr(0, 9) + "." : PhoneBook::arr[i].get_nickname()) << std::endl;
+    }
 }
 
 void PhoneBook::add(Contact ob)
 {
-    PhoneBook::arr[PhoneBook::count % 8] = ob;
-    PhoneBook::count++;
+    if(ob.is_all_filled())
+    {
+        PhoneBook::arr[PhoneBook::count % 8] = ob;
+        PhoneBook::count++;
+    }
+    else
+        std::cout<<"empty filed(s) detected the contact would not be saved\n";
 }
 void PhoneBook::search(PhoneBook ob)
 {
-    std::string s;
-    std::cout<<"type enter to display all contats or the first name to search for a specific contact"<<std::endl;
-    std::cin>>s;
-    if(s.compare("") == 0)
-        displayall(ob);
+    ob.desplayall();
+    int index;
+    std::cout<<"choose an index to show all the information of a specific contact"<<std::endl;
+    std::cin>>index;
+    if(index>=0 && index<8)
+    {
+        std::cout
+         << "First Name   :     " << ob.arr[index].get_first_name()  <<"\n"
+         << "Last Name    :     " <<ob.arr[index].get_last_name()    <<"\n"
+         << "Nickname     :     " <<ob.arr[index].get_nickname()     <<"\n"
+         << "phone number :     " <<ob.arr[index].get_phone_number() <<"\n"
+         << "darkest secr :     " <<ob.arr[index].get_darkest_secret() <<std::endl;
+    }
     else
-        std::cout << "lol"<<std::endl;
+        std::cout<<"index out of bounds\n";
+
 
 }
 void PhoneBook::exit()
@@ -80,39 +104,36 @@ int main()
 {
     std::string s;
     PhoneBook book;
+    bool displayPrompt = true;
     
     while(true)
     {
-        display();
-        std::cin.clear();
-        std::cin.sync();
+        if(displayPrompt)
+            display(),displayPrompt=false;
         if(!std::getline(std::cin, s))
         {
             if(std::cin.eof())
             {
                 std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: ";
-                freopen("/dev/tty", "r", stdin);
                 std::cin.clear();
-                continue;
+                freopen("/dev/tty", "r", stdin);
             }
             else
-            {
                 std::cout << "Input error. Please try again.\n";
-                continue;
-            }
+            continue;
         }
         s = sanitizeInput(s);
         s.erase(0, s.find_first_not_of(" \t\n\r\f\v"));
         s.erase(s.find_last_not_of(" \t\n\r\f\v") + 1);
         if (s == "ADD")
-            book.add(creat_Contact());
+            book.add(creat_Contact()),displayPrompt=true;
         else if (s == "SEARCH")
-            book.search(book);
+            book.search(book),displayPrompt=true;
         else if (s == "EXIT")
             return(book.exit(),0);
-        else
+        else if (!s.empty())
             std::cout << "Invalid command. Please try again.\n";
+        
     }
-    
     return 0;
 }

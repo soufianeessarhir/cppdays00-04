@@ -14,6 +14,7 @@
 #define CONTACT_HPP
 
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -35,6 +36,8 @@ class Contact
             std:: string get_nickname(void);
             std:: string get_phone_number(void);
             std:: string get_darkest_secret(void);
+
+            bool   is_all_filled();
 };
 
 #endif
