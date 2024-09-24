@@ -14,9 +14,9 @@
 void display(void)
 {
     std::cout<<"welcome to PhoneBook programm"<<std::endl;
-    std::cout<<"type [SEARCH] :: to searching "<<std::endl;
-    std::cout<<"type [ADD]    :: to adding new contact "<<std::endl;
-    std::cout<<"type [EXIT]   :: to exit from the program"<<std::endl;
+    std::cout<<"type -> SEARCH : to search in contacts"<<std::endl;
+    std::cout<<"type -> ADD    : to add a new contact "<<std::endl;
+    std::cout<<"type -> EXIT   : to exit from the program"<<std::endl;
 
 }
 void PhoneBook::desplayall()
@@ -50,7 +50,7 @@ void PhoneBook::search(PhoneBook ob)
     int index;
     std::cout<<"choose an index to show all the information of a specific contact"<<std::endl;
     std::cin>>index;
-    if(index>=0 && index<8)
+    if(index>=0 && index < 8 && !(index > ob.count && ob.count < 8))
     {
         std::cout
          << "First Name   :     " << ob.arr[index].get_first_name()  <<"\n"
