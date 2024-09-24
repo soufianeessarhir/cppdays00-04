@@ -66,23 +66,53 @@ Contact  creat_Contact(void)
     obj.set_darkest_secret(tmp);
     return obj;
 }
+std::string sanitizeInput(const std::string input) {
+    std::string sanitized;
+    for (int i = 0;i < input.length();i++) {
+        if (isprint(input[i])) {
+            sanitized += input[i];
+        }
+    }
+    return sanitized;
+}
 
 int main()
 {
-   std::string s;
-   PhoneBook book;
-   while(1)
-   {
+    std::string s;
+    PhoneBook book;
+    
+    while(true)
+    {
         display();
-        std:: cin >> s;
-        if (s.compare("ADD") == 0)
+        std::cin.clear();
+        std::cin.sync();
+        if(!std::getline(std::cin, s))
+        {
+            if(std::cin.eof())
+            {
+                std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: ";
+                freopen("/dev/tty", "r", stdin);
+                std::cin.clear();
+                continue;
+            }
+            else
+            {
+                std::cout << "Input error. Please try again.\n";
+                continue;
+            }
+        }
+        s = sanitizeInput(s);
+        s.erase(0, s.find_first_not_of(" \t\n\r\f\v"));
+        s.erase(s.find_last_not_of(" \t\n\r\f\v") + 1);
+        if (s == "ADD")
             book.add(creat_Contact());
-        else if (s.compare("SEARCH") == 0)
+        else if (s == "SEARCH")
             book.search(book);
-        else if (s.compare("EXIT") == 0)
-            return (book.exit(),0);
+        else if (s == "EXIT")
+            return(book.exit(),0);
         else
-            std::cout<<"invalid command"<<std::endl; 
-   }
-
+            std::cout << "Invalid command. Please try again.\n";
+    }
+    
+    return 0;
 }
