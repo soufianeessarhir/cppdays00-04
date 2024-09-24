@@ -61,8 +61,6 @@ void PhoneBook::search(PhoneBook ob)
     }
     else
         std::cout<<"index out of bounds\n";
-
-
 }
 void PhoneBook::exit()
 {
@@ -133,7 +131,6 @@ int main()
             return(book.exit(),0);
         else if (!s.empty())
             std::cout << "Invalid command. Please try again.\n";
-        
     }
     return 0;
 }
