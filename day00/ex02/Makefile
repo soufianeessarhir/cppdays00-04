@@ -1,6 +1,6 @@
 NAME =account
 
-SOURCES = Account.cpp\
+SOURCES = Account.cpp tests.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
