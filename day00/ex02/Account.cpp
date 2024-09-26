@@ -18,6 +18,11 @@
 #include <time.h>
 #include<iomanip>
 
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
 int Account::getNbAccounts(){return  _nbAccounts;}
 int Account::getTotalAmount(){return _totalAmount;}
 int Account::getNbDeposits(){return _totalNbDeposits;}
@@ -40,7 +45,7 @@ Account::Account(int initial_deposit)
     _nbDeposits=0;
     _displayTimestamp();
     std::cout<<"index:"
-    <<_accountIndex<<";amount:"<<_amount<<"created\n";
+    <<_accountIndex<<";amount:"<<_amount<<";created\n";
 
 }
 void Account::makeDeposit(int deposit)
@@ -81,11 +86,10 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 void	Account::displayStatus( void ) const
 {
-    _displayTimestamp();
-    std::cout<<" "
-    <<"accounts:"<<_nbAccounts<<";total:"<<_totalAmount<<";deposits:"
-    <<_totalNbDeposits<<";withdrawals:"<<_totalNbWithdrawals<<std::endl;
-
+  _displayTimestamp();
+  std::cout
+    <<"index:"<<_accountIndex<<";amount:"<<_amount<<";deposit:"<<_nbDeposits
+    <<";withdrawals:"<<_nbWithdrawals<<std::endl;
 }
 
 void	Account::_displayTimestamp( void )
@@ -97,5 +101,10 @@ void	Account::_displayTimestamp( void )
 }
 
 int		Account::checkAmount( void )const {return _amount;}
-Account::~Account() {std::cout<<"destructor is called\n";}
+Account::~Account() 
+{
+     _displayTimestamp();
+    std::cout<<"index:"
+    <<_accountIndex<<";amount:"<<_amount<<";closed\n";
+}
 Account::Account( void ){ std::cout<<"default constructor is called\n";} 
