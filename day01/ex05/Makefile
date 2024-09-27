@@ -1,6 +1,6 @@
 NAME =ex05
 
-SOURCES =  main.cpp  \
+SOURCES =  main.cpp  Harl.cpp \
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

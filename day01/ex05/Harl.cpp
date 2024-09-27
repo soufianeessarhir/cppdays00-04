@@ -32,7 +32,17 @@ void Harl::info()
    std::cout<<"info\n"; 
 }
 
-// void Harl::complain(std::string level)
-// {
-//     void(Harl )
-// }
+void Harl::complain(std::string level)
+{
+     void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+     for (int i = 0; i < 4; i++)
+     {
+       if(level == levels[i])
+        {
+            (this->*functions[i])();
+            return ;
+        }
+     }
+     std::cout << "no matching method for the entered level\n";
+}
