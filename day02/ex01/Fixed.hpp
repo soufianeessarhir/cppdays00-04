@@ -13,6 +13,7 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 #include <iostream>
+#include <ostream>
 #include <cmath>
 
 class Fixed
@@ -21,7 +22,7 @@ private:
     int nb;
     static const int bits;
 public:
-    Fixed(Fixed &);
+     Fixed(const Fixed &);
     Fixed&operator=(const Fixed &);
     Fixed();
     Fixed(const int);
@@ -32,7 +33,7 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
 };
-
+std::ostream& operator<<(std::ostream& , const Fixed& );
 
 
 #endif

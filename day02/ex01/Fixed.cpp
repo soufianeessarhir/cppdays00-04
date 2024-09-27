@@ -12,20 +12,19 @@
 
 #include "Fixed.hpp"
 
-const int Fixed::bits=8;
+const int Fixed::bits = 8;
 
-Fixed::Fixed():nb(0){ std::cout<<"Default constructor called\n";}
+Fixed::Fixed(){ std::cout<<"Default constructor called\n";}
 Fixed::~Fixed(){std::cout<<"Destructor called\n";}
-Fixed&  Fixed::operator=(const Fixed& ob)
+Fixed& Fixed::operator=(const Fixed& ob)
 {
-    std::cout<<"Copy assignment operator called\n";
+    std::cout << "Copy assignment operator called\n";
     if (this != &ob)
-        this->nb = getRawBits();
+        this->nb = ob.nb;
     return *this;
 }
-Fixed::Fixed(Fixed &ob)
-{
-    std::cout<<"Copy constructor called\n";
+Fixed::Fixed(const Fixed &ob) {
+    std::cout << "Copy constructor called\n";
     *this = ob;
 }
 
@@ -39,20 +38,20 @@ void Fixed::setRawBits( int const raw )
     std::cout<<"setRawBits member function called\n";
     nb = raw;
 }
-Fixed::Fixed(const int n)
-{
-    nb = (n * (1<<bits));
-}
-Fixed::Fixed(const float n)
-{
-    nb = (n * (1<<bits));
-}
+Fixed::Fixed(const int n) : nb(n << bits) {std::cout<<"Int constructor called\n";}
+Fixed::Fixed(const float n) :nb (roundf(n * (1<<bits))){std::cout<<"Float constructor called\n";}
 int Fixed::toInt(void)const
 {
-    return((int)(nb / (1<<bits)));
+    return(((nb >> bits)));
 }
 
-float Fixed::toFloat()const
+float Fixed::toFloat() const 
 {
-    return(roundf((nb / (1<<bits))));
+   return static_cast<float>(nb) / (1 << bits);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
+{
+    os << obj.toFloat();
+    return os;
 }
