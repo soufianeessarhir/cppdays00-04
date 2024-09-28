@@ -1,4 +1,4 @@
-NAME =ex02
+NAME =a.out
 
 SOURCES =  main.cpp  Fixed.cpp\
 

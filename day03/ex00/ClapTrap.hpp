@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-27 12:09:58 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-27 12:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2024-09-28 16:22:42 by codespace         #+#    #+#             */
+/*   Updated: 2024-09-28 16:22:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 #include <iostream>
-#include <ostream>
-#include <cmath>
 
-class Fixed
+class ClapTrap
 {
 private:
-    int nb;
-    static const int bits;
+    std::string Name;
+     int Hit_points = 10;
+     int Energy_points = 10;
+     int Attack_damage = 0;
 public:
-    Fixed(const Fixed &);
-    Fixed&operator=(const Fixed &);
-    Fixed();
-    Fixed(const int);
-    Fixed(const float);
-    ~Fixed();
-    int getRawBits( void );
-    void setRawBits( int const raw );
-    float toFloat( void ) const;
-    int toInt( void ) const;
+    ClapTrap();
+    ClapTrap(const std::string);
+    ClapTrap(const ClapTrap &);
+    ClapTrap &operator=(const ClapTrap &);
+    ~ClapTrap();
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
-std::ostream& operator<<(std::ostream& , const Fixed& );
 
 
 #endif
