@@ -12,17 +12,26 @@
 
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
+#include <vector>
 
 
-int main( void ) {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+int main() 
+{
+    Point a(0, 0), b(5, 0), c(2.5, 5);
+    
+    std::vector<Point> testPoints = {
+        Point(2.5, 2.5),  // Inside
+        Point(0, 5),      // Outside
+        Point(2.5, 5),    // On edge
+        Point(0, 0)       // On vertex
+    };
+    
+    for (const auto& p : testPoints) {
+        std::cout << "Point (" << p.get_x() << ", " << p.get_y() << ") is " 
+                  << (bsp(a, b, c, p) ? "inside" : "outside") 
+                  << " the triangle." << std::endl;
+    }
+    
     return 0;
 }
