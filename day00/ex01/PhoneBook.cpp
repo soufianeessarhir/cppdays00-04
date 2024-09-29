@@ -25,7 +25,7 @@ void PhoneBook::desplayall()
          << std::setw(10) << std::right << "First Name" << std::setw(10) << std::right << "|"
          << std::setw(10) << std::right << "Last Name" << std::setw(10) << std::right << "|"
          << std::setw(10) << std::right << "Nickname" << std::endl;
-    for(int i = 0;i < count%8;i++)
+    for(int i = 0;i < (count < 8 ? count % 8 : 8);i++)
     {
         std::cout << std::setw(10) << std::right << i << std::setw(10) << std::right << "|"
              << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name()) << std::setw(10) << std::right << "|"
@@ -114,7 +114,8 @@ int main()
             {
                 std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: ";
                 std::cin.clear();
-                freopen("/dev/tty", "r", stdin);
+                freopen("/dev/tty", "r", stdin);          
+            
             }
             else
                 std::cout << "Input error. Please try again.\n";
@@ -134,3 +135,4 @@ int main()
     }
     return 0;
 }
+         
