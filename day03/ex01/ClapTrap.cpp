@@ -52,7 +52,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-     std::cout<<"winning amount of"<<amount<<" because of Repairing \n";
+     std::cout<<"winning amount of "<<amount<<" points because of Repairing \n";
     Hit_points+=amount;
     Energy_points--;
 }

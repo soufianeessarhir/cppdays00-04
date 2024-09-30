@@ -27,7 +27,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &ob)
     }
     return *this;
 }
-ScavTrap::~ScavTrap():{std::cout<<"ScavTrap destructor is called\n";}
+ScavTrap::~ScavTrap(){std::cout<<"ScavTrap destructor is called\n";}
 ScavTrap::ScavTrap(const std::string str):ClapTrap(str)
 {
     std::cout<<"ScavTrap string constructor is called\n";
