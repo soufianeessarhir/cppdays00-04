@@ -13,18 +13,18 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap():ClapTrap() {std::cout<<"FragTrap default constructor is called"<<std::endl;}
-FragTrap::FragTrap(const std:string str):CalpTrap(str){std::cout<<"FragTrap string constructor is called\n";}
-FragTrap::FragTrap(const FragTarp &ob):CalpTrap(ob){ std::cout<<"FragTrap copy constructor is called\n";}
-FragTrap&operator=(const FragTarp &ob)
+FragTrap::FragTrap(const std::string str):ClapTrap(str) {std::cout<<"FragTrap string constructor is called\n";}
+FragTrap::FragTrap(const FragTrap &ob):ClapTrap(ob){ std::cout<<"FragTrap copy constructor is called\n";}
+FragTrap& FragTrap:: operator=(const FragTrap &ob)
 {
     std::cout<<"FragTrap copy assinment constructor is called\n";
-    if(this !- &ob)
+    if(this != &ob)
     {
        ClapTrap::operator=(ob);
     }
-    return *This;
+    return *this;
 }
-void FagTrap::highFivesGuys()
+void FragTrap::highFivesGuys()
 {
     std::cout<<"FragTrap"<<std::endl;
 }

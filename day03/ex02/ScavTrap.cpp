@@ -42,5 +42,5 @@ void ScavTrap::attack(const std::string& target)
 }
 void ScavTrap::guardGate()
 {
-     std::cout<<this->Name<<"is in guardGate"<<std::endl;
+     std::cout<<this->Name<<" is in guardGate"<<std::endl;
 }
