@@ -12,10 +12,10 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(){std::cout<<"ScavTrap default constructor is called\n";}
-ScavTrap::ScavTrap(const ScavTrap &ob)
+ScavTrap::ScavTrap():ClapTrap(){std::cout<<"ScavTrap default constructor is called\n";}
+
+ScavTrap::ScavTrap(const ScavTrap &ob):ClapTrap(ob)
 {
-    *this = ob;
     std::cout<<"ScavTrap copy constructor is called\n";
 }
 ScavTrap& ScavTrap::operator=(const ScavTrap &ob)
@@ -23,18 +23,14 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &ob)
     std::cout<<"ScavTrap copy assinment constructor is called\n";
     if(this != &ob)
     {
-        this->Name = ob.Name;
-        this->Hit_points = ob.Hit_points;
-        this->Energy_points = ob.Energy_points;
-        this->Attack_damage=ob.Attack_damage;
+       ClapTrap::operator=(ob);
     }
     return *this;
 }
-ScavTrap::~ScavTrap(){std::cout<<"ScavTrap destructor is called\n";}
-ScavTrap::ScavTrap(const std::string str)
+ScavTrap::~ScavTrap():{std::cout<<"ScavTrap destructor is called\n";}
+ScavTrap::ScavTrap(const std::string str):ClapTrap(str)
 {
     std::cout<<"ScavTrap string constructor is called\n";
-    Name = str;
 }
 void ScavTrap::attack(const std::string& target)
 {

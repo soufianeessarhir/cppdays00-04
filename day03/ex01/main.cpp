@@ -10,10 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
+    ScavTrap s("lol");
+    s.beRepaired(5);
+    s.guardGate();
+    s.takeDamage(2);
     std::string str = "said";
     ClapTrap b("hamid");
     ClapTrap a();
