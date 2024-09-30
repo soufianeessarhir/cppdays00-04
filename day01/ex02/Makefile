@@ -12,8 +12,8 @@ all: $(NAME) $(BNAME)
 
 $(NAME): $(OBJECTS) 
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
-
-%.o: %.c 
+	
+%.o: %.cpp  
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
