@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -18,6 +19,11 @@ int main()
     s.beRepaired(5);
     s.guardGate();
     s.takeDamage(2);
+
+    FragTrap g("lol");
+    g.beRepaired(5);
+    g.highFivesGuys();
+    g.takeDamage(2);
     std::string str = "said";
     ClapTrap b("hamid");
     ClapTrap a();

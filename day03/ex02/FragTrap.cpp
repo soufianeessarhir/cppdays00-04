@@ -12,9 +12,9 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap():CalpTrap(){std::cout<<"FragTrap default constructor is called"<<std::endl;}
-FragTrap::FragTrap(const std:string str):CalpTrap(str){}
-FragTrap::FragTrap(const FragTarp &ob):CalpTrap(ob){ std::cout<<"FragTarp copy constructor is called\n";}
+FragTrap::FragTrap():ClapTrap() {std::cout<<"FragTrap default constructor is called"<<std::endl;}
+FragTrap::FragTrap(const std:string str):CalpTrap(str){std::cout<<"FragTrap string constructor is called\n";}
+FragTrap::FragTrap(const FragTarp &ob):CalpTrap(ob){ std::cout<<"FragTrap copy constructor is called\n";}
 FragTrap&operator=(const FragTarp &ob)
 {
     std::cout<<"FragTrap copy assinment constructor is called\n";
@@ -26,6 +26,6 @@ FragTrap&operator=(const FragTarp &ob)
 }
 void FagTrap::highFivesGuys()
 {
-    std::cout<<""<<std::endl;
+    std::cout<<"FragTrap"<<std::endl;
 }
-FragTrap::~FragTrap(){}
+FragTrap::~FragTrap(){std::cout<<"ScavTrap destructor is called\n";}

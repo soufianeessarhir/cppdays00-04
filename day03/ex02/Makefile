@@ -1,6 +1,6 @@
 NAME =a.out
 
-SOURCES =  main.cpp  ClapTrap.cpp  ScavTrap.cpp\
+SOURCES =  main.cpp  ClapTrap.cpp  ScavTrap.cpp FragTrap.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
