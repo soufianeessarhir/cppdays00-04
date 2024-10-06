@@ -20,6 +20,7 @@ private:
         long long count;
         Contact arr[8]; 
 public:
+    PhoneBook();
     void add(Contact ob);
     void search(PhoneBook );
     void exit();

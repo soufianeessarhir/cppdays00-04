@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook():count(-1){}
+
 void display(void)
 {
     std::cout<<"welcome to PhoneBook programm"<<std::endl;
@@ -21,15 +24,15 @@ void display(void)
 }
 void PhoneBook::desplayall()
 {
-    std::cout << std::setw(10) << std::right << "Index" << std::setw(10) << std::right << "|"
-         << std::setw(10) << std::right << "First Name" << std::setw(10) << std::right << "|"
-         << std::setw(10) << std::right << "Last Name" << std::setw(10) << std::right << "|"
+    std::cout << std::setw(10) << std::right << "Index" <<std::right << "|"
+         << std::setw(10) << std::right << "First Name" <<  std::right << "|"
+         << std::setw(10) << std::right << "Last Name" <<  std::right << "|"
          << std::setw(10) << std::right << "Nickname" << std::endl;
-    for(int i = 0;i < (count < 8 ? count % 8 : 8);i++)
+    for(int i = 0;i <= (count < 8 ? count % 8 : 8);i++)
     {
-        std::cout << std::setw(10) << std::right << i << std::setw(10) << std::right << "|"
-             << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name()) << std::setw(10) << std::right << "|"
-             << std::setw(10) << std::right << (PhoneBook::arr[i].get_last_name().length() > 10 ? PhoneBook::arr[i].get_last_name().substr(0, 9) + "." : PhoneBook::arr[i].get_last_name()) << std::setw(10) << std::right << "|"
+        std::cout << std::setw(10) << std::right << i << "|"
+             << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name())<< "|"
+             << std::setw(10) << std::right << (PhoneBook::arr[i].get_last_name().length() > 10 ? PhoneBook::arr[i].get_last_name().substr(0, 9) + "." : PhoneBook::arr[i].get_last_name()) <<  "|"
              << std::setw(10) << std::right << (PhoneBook::arr[i].get_nickname().length() > 10 ? PhoneBook::arr[i].get_nickname().substr(0, 9) + "." : PhoneBook::arr[i].get_nickname()) << std::endl;
     }
 }
@@ -38,8 +41,8 @@ void PhoneBook::add(Contact ob)
 {
     if(ob.is_all_filled())
     {
-        PhoneBook::arr[PhoneBook::count % 8] = ob;
         PhoneBook::count++;
+        PhoneBook::arr[PhoneBook::count % 8] = ob;
     }
     else
         std::cout<<"empty filed(s) detected the contact would not be saved\n";
@@ -52,12 +55,14 @@ void PhoneBook::search(PhoneBook ob)
     std::cin>>index;
     if(index>=0 && index < 8 && !(index > ob.count && ob.count < 8))
     {
+        std::cout<<"--------------------------------------------\n";
         std::cout
-         << "First Name   :     " << ob.arr[index].get_first_name()  <<"\n"
-         << "Last Name    :     " <<ob.arr[index].get_last_name()    <<"\n"
-         << "Nickname     :     " <<ob.arr[index].get_nickname()     <<"\n"
-         << "phone number :     " <<ob.arr[index].get_phone_number() <<"\n"
-         << "darkest secr :     " <<ob.arr[index].get_darkest_secret() <<std::endl;
+         << "First Name     :     " << ob.arr[index].get_first_name()  <<"\n"
+         << "Last Name      :     " <<ob.arr[index].get_last_name()    <<"\n"
+         << "Nickname       :     " <<ob.arr[index].get_nickname()     <<"\n"
+         << "phone number   :     " <<ob.arr[index].get_phone_number() <<"\n"
+         << "darkest secret :     " <<ob.arr[index].get_darkest_secret() <<std::endl;
+         std::cout<<"--------------------------------------------\n";
     }
     else
         std::cout<<"index out of bounds\n";
@@ -83,14 +88,14 @@ Contact  creat_Contact(void)
     std::cout<<"enter the phone number"<<std::endl;
     std::cin>> tmp;
     obj.set_phone_number(tmp);
-    std::cout<<"enter a darkest secre"<<std::endl;
+    std::cout<<"enter a darkest secret"<<std::endl;
     std::cin>> tmp;
     obj.set_darkest_secret(tmp);
     return obj;
 }
 std::string sanitizeInput(const std::string input) {
     std::string sanitized;
-    for (int i = 0;i < input.length();i++) {
+    for (size_t i = 0;i < input.length();i++) {
         if (isprint(input[i])) {
             sanitized += input[i];
         }
@@ -112,7 +117,7 @@ int main()
         {
             if(std::cin.eof())
             {
-                std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: ";
+                std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: \n";
                 std::cin.clear();
                 freopen("/dev/tty", "r", stdin);          
             
