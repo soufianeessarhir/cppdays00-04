@@ -23,8 +23,9 @@ public:
     PhoneBook();
     void add(Contact ob);
     void search(PhoneBook );
-    void exit();
+    void exit() const;
     void desplayall();
+    bool is_valid_index(std::string& str, int& index);
 
 };
 

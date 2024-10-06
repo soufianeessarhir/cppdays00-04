@@ -12,23 +12,24 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook():count(-1){}
+PhoneBook::PhoneBook():count(0){}
 
-void display(void)
+void menu() 
 {
-    std::cout<<"welcome to PhoneBook programm"<<std::endl;
-    std::cout<<"type -> SEARCH : to search in contacts"<<std::endl;
-    std::cout<<"type -> ADD    : to add a new contact "<<std::endl;
-    std::cout<<"type -> EXIT   : to exit from the program"<<std::endl;
-
+    std::cout << "\nPHONEBOOK MENU\n"
+              << "1. ADD    - Add a new contact\n"
+              << "2. SEARCH - Search contacts\n"
+              << "3. EXIT   - Exit program\n"
+              << "Enter command: ";
 }
+
 void PhoneBook::desplayall()
 {
     std::cout << std::setw(10) << std::right << "Index" <<std::right << "|"
          << std::setw(10) << std::right << "First Name" <<  std::right << "|"
          << std::setw(10) << std::right << "Last Name" <<  std::right << "|"
          << std::setw(10) << std::right << "Nickname" << std::endl;
-    for(int i = 0;i <= (count < 8 ? count % 8 : 8);i++)
+    for(int i = 0;i < (count < 8 ? count % 8 : 8);i++)
     {
         std::cout << std::setw(10) << std::right << i << "|"
              << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name())<< "|"
@@ -41,19 +42,41 @@ void PhoneBook::add(Contact ob)
 {
     if(ob.is_all_filled())
     {
-        PhoneBook::count++;
         PhoneBook::arr[PhoneBook::count % 8] = ob;
+        PhoneBook::count++;
     }
     else
         std::cout<<"empty filed(s) detected the contact would not be saved\n";
 }
+bool PhoneBook::is_valid_index(std::string& str, int& index) 
+{
+    if (str.empty()) return false;
+    
+    for(size_t i = 0; i < str.length(); i++)
+    {
+        if(!std::isdigit(str[i]))
+            return false;
+    }
+    index = std::atoi(str.c_str());
+    return true;
+}
+
 void PhoneBook::search(PhoneBook ob)
 {
+    if (ob.count == 0) {
+        std::cout << "No contacts available.\n";
+        return;
+    }
     ob.desplayall();
+    std::string input;
     int index;
     std::cout<<"choose an index to show all the information of a specific contact"<<std::endl;
-    std::cin>>index;
-    if(index>=0 && index < 8 && !(index > ob.count && ob.count < 8))
+    std::getline(std::cin, input);
+    if (!is_valid_index(input, index)) {
+        std::cout << "Invalid index. Please try again.\n";
+        return;
+    }
+    if(index >= 0 && index < 8 && !(index > ob.count && ob.count < 8))
     {
         std::cout<<"--------------------------------------------\n";
         std::cout
@@ -67,76 +90,80 @@ void PhoneBook::search(PhoneBook ob)
     else
         std::cout<<"index out of bounds\n";
 }
-void PhoneBook::exit()
+void PhoneBook::exit()const 
 {
-    std::cout<<"exit"<<std::endl;
+    std::cout << "Goodbye!\n";
+}
+Contact create_contact() 
+{
+    Contact contact;
+    std::string input;
+    
+    std::cout<<"\n";
+    std::cout << "Enter first name: ";
+    std::getline(std::cin, input);
+    contact.set_first_name(input);
+    
+    std::cout << "Enter last name: ";
+    std::getline(std::cin, input);
+    contact.set_last_name(input);
+    
+    std::cout << "Enter nickname: ";
+    std::getline(std::cin, input);
+    contact.set_nickname(input);
+    
+    std::cout << "Enter phone number: ";
+    std::getline(std::cin, input);
+    contact.set_phone_number(input);
+    
+    std::cout << "Enter darkest secret: ";
+    std::getline(std::cin, input);
+    contact.set_darkest_secret(input);
+    
+    return contact;
 }
 
-Contact  creat_Contact(void)
+std::string sanitize_input(const std::string& input)
 {
-    Contact obj;
-    std::string tmp;
-    std::cout<<"ener the first name"<<std::endl;
-    std::cin >> tmp;
-    obj.set_first_name(tmp);
-    std::cout<<"ener the last name"<<std::endl;
-    std::cin>> tmp;
-    obj.set_last_name(tmp);
-    std::cout<<"enter a nickname"<<std::endl;
-    std::cin>> tmp;
-    obj.set_nickname(tmp);
-    std::cout<<"enter the phone number"<<std::endl;
-    std::cin>> tmp;
-    obj.set_phone_number(tmp);
-    std::cout<<"enter a darkest secret"<<std::endl;
-    std::cin>> tmp;
-    obj.set_darkest_secret(tmp);
-    return obj;
-}
-std::string sanitizeInput(const std::string input) {
     std::string sanitized;
-    for (size_t i = 0;i < input.length();i++) {
-        if (isprint(input[i])) {
+    for (size_t i = 0; i < input.length(); i++) {
+        if (std::isalpha(input[i])) {
             sanitized += input[i];
         }
     }
     return sanitized;
 }
 
-int main()
+int main() 
 {
-    std::string s;
     PhoneBook book;
-    bool displayPrompt = true;
-    
-    while(true)
-    {
-        if(displayPrompt)
-            display(),displayPrompt=false;
-        if(!std::getline(std::cin, s))
-        {
-            if(std::cin.eof())
-            {
-                std::cout << "EOF detected. To continue, press Ctrl+C to exit or enter a command: \n";
-                std::cin.clear();
-                freopen("/dev/tty", "r", stdin);          
-            
+    std::string command;
+
+    while (true) {
+        menu();
+        
+        if (!std::getline(std::cin, command)) {
+            if (std::cin.eof()) {
+                std::cout << "\nEOF detected. Program terminating.\n";
+                break;
             }
-            else
-                std::cout << "Input error. Please try again.\n";
+            std::cin.clear();
             continue;
         }
-        s = sanitizeInput(s);
-        s.erase(0, s.find_first_not_of(" \t\n\r\f\v"));
-        s.erase(s.find_last_not_of(" \t\n\r\f\v") + 1);
-        if (s == "ADD")
-            book.add(creat_Contact()),displayPrompt=true;
-        else if (s == "SEARCH")
-            book.search(book),displayPrompt=true;
-        else if (s == "EXIT")
-            return(book.exit(),0);
-        else if (!s.empty())
+
+        command = sanitize_input(command);
+        if (command.empty()) continue;
+
+        if (command == "ADD") {
+            book.add(create_contact());
+        } else if (command == "SEARCH") {
+            book.search(book);
+        } else if (command == "EXIT") {
+            book.exit();
+            break;
+        } else {
             std::cout << "Invalid command. Please try again.\n";
+        }
     }
     return 0;
 }
