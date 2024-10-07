@@ -28,7 +28,7 @@ std::string     Contact::get_darkest_secret()                  {return darkest_s
 
 bool            Contact::is_all_filled()
                 {
-                    if(!(first_name.empty() && last_name.empty() && nickname.empty() && phone_number.empty()&&darkest_secret.empty()))
+                    if(!(first_name.empty() || last_name.empty() || nickname.empty() || phone_number.empty()||darkest_secret.empty()))
                         return true;
                     return false;
                 }
