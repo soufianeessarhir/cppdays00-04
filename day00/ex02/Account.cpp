@@ -32,7 +32,7 @@ void Account::displayAccountsInfos()
     _displayTimestamp();
     std::cout<<"accounts:"
     <<_nbAccounts<<";total:"<<_totalAmount<<";deposits:"
-    <<_totalNbDeposits<<":withdrawals:"
+    <<_totalNbDeposits<<";withdrawals:"
     <<_totalNbWithdrawals<<std::endl;
 }
 Account::Account(int initial_deposit)
@@ -92,12 +92,16 @@ void	Account::displayStatus( void ) const
     <<";withdrawals:"<<_nbWithdrawals<<std::endl;
 }
 
-void	Account::_displayTimestamp( void )
-{
-    std::stringstream ss;
-    std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    ss << std::put_time(std::localtime(&now), "[%Y%m%d_%H%M%S]");
-    std::cout<<ss.str()<<" ";
+ void Account::_displayTimestamp(void) 
+ {
+        std::ostringstream ss;
+        time_t now = time(NULL);
+        struct tm* timeinfo = localtime(&now);
+        
+        char buffer[20];
+        strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", timeinfo);
+        
+        std::cout << buffer << " ";
 }
 
 int		Account::checkAmount( void )const {return _amount;}
