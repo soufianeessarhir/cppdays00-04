@@ -12,20 +12,17 @@
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    ScavTrap s("lol");
-    s.beRepaired(5);
-    s.guardGate();
-    s.takeDamage(2);
-
-    FragTrap g("lol");
-    g.beRepaired(5);
-    g.highFivesGuys();
-    g.takeDamage(2);
     std::string str = "said";
-    ClapTrap b("hamid");
-    ClapTrap a();
-    b.attack(str);
+    DiamondTrap d("lol");
+    d.whoAmI();
+    d.attack(str);
+    d.takeDamage(2);
+    d.beRepaired(5);
+    d.guardGate();
+    d.highFivesGuys();
+    d.whoAmI();
 }
