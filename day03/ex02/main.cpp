@@ -26,6 +26,6 @@ int main()
     g.takeDamage(2);
     std::string str = "said";
     ClapTrap b("hamid");
-    ClapTrap a();
+    ClapTrap a(b);
     b.attack(str);
 }
