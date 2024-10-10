@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
+#include <sstream>
 
 PhoneBook::PhoneBook():count(0){}
 
@@ -74,7 +74,10 @@ bool PhoneBook::is_valid_index(std::string& str, int& index)
 {
     str = trim(str);
     if (str.empty()) return false;
-    if(str.length() > std::to_string(MAX_C).length())
+    std::stringstream ss;
+    ss << MAX_C;
+    std::string max_c_str = ss.str();
+    if (str.length() > max_c_str.length())
         return false;
     for(size_t i = 0; i < str.length(); i++)
     {

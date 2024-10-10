@@ -16,6 +16,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <string>
+#include <cctype>
 #include <cstdlib>
 
 class Contact
