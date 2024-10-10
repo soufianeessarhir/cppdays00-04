@@ -68,7 +68,7 @@ void PhoneBook::add(Contact ob)
         PhoneBook::count++;
     }
     else
-        std::cout<<"empty filed(s) detected the contact would not be saved\n";
+        std::cout<<"empty filed(s) or invalid characters detected the contact would not be saved\n";
 }
 bool PhoneBook::is_valid_index(std::string& str, int& index) 
 {
