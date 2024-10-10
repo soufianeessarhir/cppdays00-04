@@ -12,6 +12,7 @@
 
 #include "PhoneBook.hpp"
 
+
 PhoneBook::PhoneBook():count(0){}
 
 std::string trim(std::string& str) {
@@ -49,7 +50,7 @@ void PhoneBook::desplayall()
          << std::setw(10) << std::right << "Last Name" <<  std::right << "|"
          << std::setw(10) << std::right << "Nickname" << std::endl;
     std::cout<<"--------------------------------------------\n";
-    for(int i = 0;i < (count < 8 ? count % 8 : 8);i++)
+    for(int i = 0;i < (count < MAX_C ? count % MAX_C : MAX_C);i++)
     {
         std::cout << std::setw(10) << std::right << i << "|"
              << std::setw(10) << std::right << (PhoneBook::arr[i].get_first_name().length() > 10 ? PhoneBook::arr[i].get_first_name().substr(0, 9) + "." : PhoneBook::arr[i].get_first_name())<< "|"
@@ -63,7 +64,7 @@ void PhoneBook::add(Contact ob)
 {
     if(ob.is_all_filled())
     {
-        PhoneBook::arr[PhoneBook::count % 8] = ob;
+        PhoneBook::arr[PhoneBook::count % MAX_C] = ob;
         PhoneBook::count++;
     }
     else
@@ -71,8 +72,10 @@ void PhoneBook::add(Contact ob)
 }
 bool PhoneBook::is_valid_index(std::string& str, int& index) 
 {
+    str = trim(str);
     if (str.empty()) return false;
-    
+    if(str.length() > std::to_string(MAX_C).length())
+        return false;
     for(size_t i = 0; i < str.length(); i++)
     {
         if(!std::isdigit(str[i]))
@@ -98,7 +101,7 @@ void PhoneBook::search(PhoneBook ob)
         std::cout << "Invalid index. Please try again.\n";
         return;
     }
-    if(index >= 0 && index < (ob.count < 8 ? ob.count % 8 : 8))
+    if(index >= 0 && index < (ob.count < MAX_C ? ob.count % MAX_C : MAX_C))
     {
         std::cout<<"--------------------------------------------\n";
         std::cout

@@ -14,11 +14,12 @@
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
 
+#define MAX_C 8
 class PhoneBook
 {
 private:
         long long count;
-        Contact arr[8]; 
+        Contact arr[MAX_C]; 
 public:
     PhoneBook();
     void add(Contact ob);
