@@ -11,21 +11,19 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
-int main(int ac, char **av)
+int main(int ac,char **av)
 {
-    int i = 0,j;
     if (ac > 1)
     {
-        while(++i < ac)
+        for(size_t i = 1; i < (size_t)ac; i++)
         {
-            int vlen =  strlen(av[i]);
-            j=-1;
-            while(++j < vlen)
-                std::cout << (char)toupper(av[i][j]) ;
+            std :: string str = av[i];
+            for(size_t j = 0; j < str.length(); j++)
+                std :: cout << (char)std :: toupper(str[j]);
         }
-         std :: cout << std::endl;
+        std :: cout << std :: endl;
     }
     else
         std :: cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std :: endl;
