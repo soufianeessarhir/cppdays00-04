@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie..hpp                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:42:24 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:42:24 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:06:12 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:06:12 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
 
+#pragma once
 #include <iostream>
 class Zombie
 {
@@ -25,5 +24,3 @@ class Zombie
         ~Zombie();
 };
 Zombie* zombieHorde(int N, std::string name);
-
-#endif

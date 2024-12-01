@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 11:13:43 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 11:13:43 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:06:46 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:06:46 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
 void randomChump( std::string name )
 {
     Zombie zmb(name);

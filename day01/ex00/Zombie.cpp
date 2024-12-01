@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:47:46 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:47:46 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:06:35 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:06:35 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Zombie.hpp"
+
 Zombie::Zombie(std::string str)
 {
     name = str;
 }
 void Zombie::announce()
 {
-    std::cout<<name<<": "<<" BraiiiiiiinnnzzzZ..."<<std::endl;
+    std::cout<<name<<" : "<<" BraiiiiiiinnnzzzZ..."<<std::endl;
 }
 Zombie::~Zombie()
 {

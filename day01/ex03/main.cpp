@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:44:00 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:44:00 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:04:54 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:04:54 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"

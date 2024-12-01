@@ -3,29 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 15:02:53 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 15:02:53 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:04:20 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:04:20 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
 
+#pragma once
 #include "Weapon.hpp"
 
 class HumanB
 {
-private:
-        Weapon *weapen;
-        std::string name;
-public:
-    HumanB();
-    HumanB(std::string);
-    void setWeapon(Weapon &ob);
-    ~HumanB();
-    void attack(void);
+    private:
+            Weapon *weapen;
+            std::string name;
+    public:
+        HumanB();
+        HumanB(std::string);
+        void setWeapon(Weapon &ob);
+        ~HumanB();
+        void attack(void);
 };
-
-#endif

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 12:18:16 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 12:18:16 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:06:19 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:06:19 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Zombie.hpp"
 

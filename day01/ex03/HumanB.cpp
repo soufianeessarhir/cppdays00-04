@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 15:26:01 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 15:26:01 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:05:14 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:05:14 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ HumanB::HumanB(std::string s)
     name = s;
 }
 HumanB::~HumanB(){}
+
 void HumanB::attack()
 {
     std::cout << name << " attacks with their " << (*weapen).getType() << std::endl;

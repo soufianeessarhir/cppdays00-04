@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:53:59 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:53:59 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:07:02 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:07:02 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Zombie* newZombie( std::string name )
 {
     Zombie *zmb;
-    zmb=new Zombie(name);
-    zmb->announce();
+    zmb = new Zombie(name);
     return zmb;
 }

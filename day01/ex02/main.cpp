@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:44:00 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:44:00 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:05:30 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:05:30 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
 
 int main()
 {
@@ -19,12 +18,12 @@ int main()
    std::string *stringPTR= &str;
    std::string &stringREF = str;
 
-   std::cout<<&str<<std::endl;
-   std::cout<<stringPTR<<std::endl;
-   std::cout<<&stringREF<<std::endl;
+   std::cout<< "The memory address of the string variable  " <<&str<<std::endl;
+   std::cout<< "The memory address held by stringPTR       "     <<stringPTR<<std::endl;
+   std::cout<< "The memory address held by stringREF       "     <<&stringREF<<std::endl;
 
-   std::cout<<str<<std::endl;
-   std::cout<<*stringPTR<<std::endl;
-   std::cout<<stringREF<<std::endl;
+   std::cout<< "The value of the string variable           " <<str<<std::endl;
+   std::cout<< "The value pointed to by stringPTR          " << *stringPTR<<std::endl;
+   std::cout<< "The value pointed to by stringREF          " <<stringREF<<std::endl;
 
 }

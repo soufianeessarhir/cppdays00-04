@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 10:44:00 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 10:44:00 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:05:48 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:05:48 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
 
 int main()
 {
@@ -19,7 +18,7 @@ int main()
     Zombie *zm = zombieHorde(n,"name");
     for (int i = 0; i < n; i++)
     {
-        zm->announce();
+        zm[i].announce();
     }
     delete [] zm;
     return 0;

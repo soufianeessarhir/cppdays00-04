@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 14:39:10 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 14:39:10 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 14:04:31 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 14:04:31 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPEN_HPP
-#define WEAPEN_HPP
-
+#pragma once
 #include <iostream>
 
 class Weapon
@@ -28,5 +26,3 @@ class Weapon
     Weapon(std::string);
     ~Weapon();
 };
-
-#endif
