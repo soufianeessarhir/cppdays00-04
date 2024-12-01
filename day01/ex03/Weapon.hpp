@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #pragma once
+
 #include <iostream>
 
 class Weapon
@@ -20,8 +21,8 @@ class Weapon
     std::string type;
 
     public:
-    const std::string getType();
-    void setType(std::string );
+    const std::string& getType();
+    void setType(std::string);
     Weapon();
     Weapon(std::string);
     ~Weapon();

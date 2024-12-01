@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 14:48:09 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 14:48:09 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 15:56:21 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 15:56:21 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ Weapon::Weapon(std::string str)
 };
 
 Weapon::~Weapon(){};
-const std::string Weapon::getType(){return type;}
+
+const std::string& Weapon::getType(){return type;}
+
 void Weapon::setType(std::string ob)
 {
   type = ob;

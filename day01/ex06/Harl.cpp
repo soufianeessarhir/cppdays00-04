@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 18:58:13 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 18:58:13 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 16:29:57 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 16:29:57 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 Harl::Harl(){}
+
 Harl::~Harl(){}
+
 void Harl::error(void)
 {
     std::cout<<"error\n";

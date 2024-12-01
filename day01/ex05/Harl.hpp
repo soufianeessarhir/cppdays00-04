@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-26 18:48:06 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-26 18:48:06 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-01 16:26:54 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-01 16:26:54 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+
+#pragma once
 #include <iostream>
 
 class Harl
@@ -26,7 +26,3 @@ class Harl
         ~Harl();
         void complain( std::string );
 };
-
-
-
-#endif

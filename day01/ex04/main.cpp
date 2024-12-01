@@ -17,7 +17,7 @@
 
 void replace_acc(std::string to_find ,std::string to_replace,std::string newfile,std::string str)
 {
-      size_t pos = 0;
+    size_t pos = 0;
     while ((pos = str.find(to_find, pos)) != std::string::npos)  
     {
         str.erase(pos, to_find.length());
@@ -33,7 +33,7 @@ void replace_acc(std::string to_find ,std::string to_replace,std::string newfile
     else
         std::cout<<"error when opening file for writing\n";
 }
-void replaceInFile(int ac,char **av)
+void replaceInFile(char **av)
 {
     std::ifstream file(av[1]);
     if(!file)
@@ -45,7 +45,6 @@ void replaceInFile(int ac,char **av)
         file.close();
         std::string str = buff.str();
         replace_acc(av[2],av[3],av[1],str);
-
     }
 
 }
@@ -55,11 +54,10 @@ int main(int ac, char **av)
     {
         if(!av[1] || !*av[1] || !av[2] || !*av[2] || !av[3] || !*av[2])
             return 0;
-        replaceInFile(ac,av);
-        
+        replaceInFile(av);
     }
     else
-        std::cout<<"incorect number of arguments\n";
+        std::cout<<"\n\tincorect number of arguments\n";
     
     return 0;
 }

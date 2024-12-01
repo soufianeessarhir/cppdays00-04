@@ -17,5 +17,5 @@ HumanA::~HumanA(){}
 HumanA::HumanA( std::string str, Weapon& ob):weapen(ob),name(str) {}
 void HumanA::attack()
 {
-    std::cout<<name<<"attacks with their "<<weapen.getType()<<std::endl;
+    std::cout<<name<<" attacks with their "<<weapen.getType()<<std::endl;
 }
