@@ -13,7 +13,6 @@
 #include <iostream>
 #include "Fixed.hpp"
 #include "Point.hpp"
-#include <vector>
 
 
 int main() 

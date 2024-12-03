@@ -18,7 +18,10 @@ Point::Point(const Point& ob) : x(ob.x), y(ob.y) {}
 
 const Point& Point::operator=(const Point& ob) 
 {
-    (void)ob; 
+    if (this == &ob)
+        return *this;
+    this->~Point();
+    new (this) Point(ob);
     return *this;
 } 
 Point::~Point(){}
