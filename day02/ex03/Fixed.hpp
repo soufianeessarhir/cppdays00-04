@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-27 12:09:58 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-27 12:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-03 14:36:37 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-03 14:36:37 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
@@ -28,16 +29,16 @@ public:
     Fixed(const int);
     Fixed(const float);
     ~Fixed();
-    int getRawBits( void );
+    int getRawBits( void )const;
     void setRawBits( int const raw );
     float toFloat( void ) const;
     int toInt( void ) const;
-    bool operator<(Fixed &);
-    bool operator>(Fixed &);
-    bool operator<=(Fixed &);
-    bool operator>=(Fixed &);
-    bool operator==(Fixed &);
-    bool operator!=(Fixed &);
+    bool operator<(Fixed &)const ;
+    bool operator>(Fixed &)const ;
+    bool operator<=(Fixed &)const ;
+    bool operator>=(Fixed &)const ;
+    bool operator==(Fixed &)const ;
+    bool operator!=(Fixed &)const ;
 
     Fixed  operator+(const Fixed &)const;
     Fixed  operator-(const Fixed &)const;

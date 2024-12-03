@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-27 14:50:27 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-27 14:50:27 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-03 13:24:16 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-03 13:24:16 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Fixed.hpp"
 
 const int Fixed::bits = 8;
-Fixed::Fixed():nb(0){ /*std::cout<<"Default constructor called\n";*/}
-Fixed::~Fixed(){/*std::cout<<"Destructor called\n";*/}
+
+Fixed::Fixed():nb(0) { /*std::cout<<"Default constructor called\n";*/}
+
+Fixed::~Fixed( ){/*std::cout<<"Destructor called\n";*/}
+
 Fixed& Fixed::operator=(const Fixed& ob)
 {
     // std::cout << "Copy assignment operator called\n";
@@ -22,11 +26,12 @@ Fixed& Fixed::operator=(const Fixed& ob)
         this->nb = ob.nb;
     return *this;
 }
+
 Fixed::Fixed(const Fixed &ob) {
     // std::cout << "Copy constructor called\n";
     *this = ob;
 }
-int Fixed::getRawBits( void )
+int Fixed::getRawBits( void )const
 {
     // std::cout<<"getRawBits member function called\n";
     return nb;
@@ -45,12 +50,14 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
     os << obj.toFloat();
     return os;
 }
-bool Fixed::operator>(Fixed &ob){return (this->nb > ob.nb);}
-bool Fixed::operator<(Fixed &ob){return (this->nb < ob.nb);}
-bool Fixed::operator<=(Fixed &ob){return (this->nb <= ob.nb);}
-bool Fixed::operator>=(Fixed &ob){return (this->nb >= ob.nb);}
-bool Fixed::operator==(Fixed &ob){return (this->nb == ob.nb);}
-bool Fixed::operator!=(Fixed &ob){return (this->nb != ob.nb);}
+bool Fixed::operator> (Fixed &ob)const{return (this->nb >  ob.nb);}
+bool Fixed::operator< (Fixed &ob)const{return (this->nb <  ob.nb);}
+bool Fixed::operator<=(Fixed &ob)const{return (this->nb <= ob.nb);}
+bool Fixed::operator>=(Fixed &ob)const{return (this->nb >= ob.nb);}
+bool Fixed::operator==(Fixed &ob)const{return (this->nb == ob.nb);}
+bool Fixed::operator!=(Fixed &ob)const{return (this->nb != ob.nb);}
+
+
 Fixed  Fixed::operator+(const Fixed &ob)const{return Fixed(this->toFloat() + ob.toFloat());}
 Fixed  Fixed::operator*(const Fixed &ob)const{return Fixed(this->toFloat() * ob.toFloat());}
 Fixed  Fixed::operator-(const Fixed &ob)const{return Fixed(this->toFloat() - ob.toFloat());}

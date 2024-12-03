@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-27 14:50:27 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-27 14:50:27 by codespace        ###   ########.fr       */
+/*   Created: 2024-12-03 09:05:50 by sessarhi          #+#    #+#             */
+/*   Updated: 2024-12-03 09:05:50 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 const int Fixed::bits=8;
 
-Fixed::Fixed():nb(0){ std::cout<<"Default constructor called\n";}
+Fixed::Fixed():nb(0) { std::cout<<"Default constructor called\n";}
+
 Fixed::~Fixed(){std::cout<<"Destructor called\n";}
+
 Fixed&  Fixed::operator=(const Fixed& ob)
 {
     std::cout<<"Copy assignment operator called\n";
     if (this != &ob)
-        this->nb = getRawBits();
+        this->nb = ob.getRawBits();
     return *this;
 }
 Fixed::Fixed(Fixed &ob)
@@ -29,7 +31,7 @@ Fixed::Fixed(Fixed &ob)
     *this = ob;
 }
 
-int Fixed::getRawBits( void )
+int Fixed::getRawBits( void ) const
 {
     std::cout<<"getRawBits member function called\n";
     return nb;
