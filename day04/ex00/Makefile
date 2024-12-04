@@ -1,14 +1,14 @@
 NAME =a.out
 
-SOURCES =  main.cpp  	\
+SOURCES =  main.cpp Cat.cpp Dog.cpp Animal.cpp \
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 RM = rm -f
 
-all: $(NAME) $(BNAME)
+all: $(NAME) 
 
 $(NAME): $(OBJECTS) 
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
