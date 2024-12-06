@@ -65,5 +65,6 @@
         "utility": "cpp",
         "vector": "cpp",
         "filesystem": "cpp"
-    }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
 }

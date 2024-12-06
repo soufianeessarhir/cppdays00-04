@@ -3,26 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-04 08:52:26 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-12-04 08:52:26 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/04 08:52:26 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/06 19:12:47 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-
+#include <cstdlib>
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); 
-    j->makeSound();
-    meta->makeSound();
+    int n = 10;
+    
+    Animal **arr = new Animal*[n];
+    for (int i = 0; i < n; i++)
+    {
+        if (i % 2 == 0)
+            arr[i] = new Dog();
+        else
+            arr[i] = new Cat();
+        arr[i]->makeSound();
+    }
+    for (int i = 0; i < n; i++)
+    {
+       delete arr[i];
+    }
+    delete[] arr;
+    
     return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-04 08:50:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-12-04 08:50:03 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/04 08:50:03 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/06 18:49:27 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cat::Cat()
 {
+    this->brain = new Brain();
     this->type = "Cat";
     std::cout << "Cat constructor called" << std::endl;
 }
@@ -40,5 +41,6 @@ Cat &Cat::operator=(const Cat &src)
 
 void Cat::makeSound() const
 {
+    delete brain;
     std::cout << "Miaou miaou" << std::endl;
 }
