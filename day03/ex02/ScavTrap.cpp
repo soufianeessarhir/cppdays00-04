@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 08:37:55 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-09-30 08:37:55 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/07 11:29:23 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:30:21 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ScavTrap.hpp"
 
@@ -28,15 +29,16 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &ob)
     return *this;
 }
 ScavTrap::~ScavTrap(){std::cout<<"ScavTrap destructor is called\n";}
+
 ScavTrap::ScavTrap(const std::string str):ClapTrap(str)
 {
     std::cout<<"ScavTrap string constructor is called\n";
 }
 void ScavTrap::attack(const std::string& target)
 {
-    if(Hit_points)
+    if(Hit_points && Energy_points)
     {
-        std::cout<<this->Name<<"from ScavTrap attacks " <<target<<" causing "<<this->Attack_damage<<" points of damage!"<<std::endl;
+        std::cout<<this->Name<<" from ScavTrap attacks " <<target<<" causing "<<this->Attack_damage<<" points of damage!"<<std::endl;
         Energy_points--;
     }
 }

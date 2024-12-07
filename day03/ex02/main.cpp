@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-28 17:17:57 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-09-28 17:17:57 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/07 11:29:05 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:29:06 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"

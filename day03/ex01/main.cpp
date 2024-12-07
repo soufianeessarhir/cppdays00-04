@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-28 17:17:57 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-09-28 17:17:57 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/09/28 17:17:57 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:10:37 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int main()
     s.takeDamage(2);
     std::string str = "said";
     ClapTrap b("hamid");
-    ClapTrap a();
+    ClapTrap a;
     b.attack(str);
 }

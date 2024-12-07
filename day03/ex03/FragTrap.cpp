@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 12:36:11 by codespace         #+#    #+#             */
-/*   Updated: 2024-09-30 12:36:11 by codespace        ###   ########.fr       */
+/*   Created: 2024/12/07 11:46:07 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:46:08 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap():ClapTrap() {std::cout<<"FragTrap default constructor is called"<<std::endl;}
+
 FragTrap::FragTrap(const std::string str):ClapTrap(str) {std::cout<<"FragTrap string constructor is called\n";}
+
 FragTrap::FragTrap(const FragTrap &ob):ClapTrap(ob){ std::cout<<"FragTrap copy constructor is called\n";}
+
 FragTrap& FragTrap:: operator=(const FragTrap &ob)
 {
     std::cout<<"FragTrap copy assinment constructor is called\n";
@@ -26,6 +30,6 @@ FragTrap& FragTrap:: operator=(const FragTrap &ob)
 }
 void FragTrap::highFivesGuys()
 {
-    std::cout<<"FragTrap"<<std::endl;
+    std::cout<<"High five, buddy! o/"<<std::endl;
 }
 FragTrap::~FragTrap(){std::cout<<"FragTrap destructor is called\n";}

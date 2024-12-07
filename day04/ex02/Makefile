@@ -1,14 +1,15 @@
 NAME =a.out
 
-SOURCES =  main.cpp  ClapTrap.cpp  ScavTrap.cpp\
+SOURCES =  main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-g #-fsanitize=address
 RM = rm -f
 
-all: $(NAME)
+all: $(NAME) 
+
 $(NAME): $(OBJECTS) 
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 

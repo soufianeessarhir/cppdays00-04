@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-28 17:17:57 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-09-28 17:17:57 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/07 11:44:19 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:54:26 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
@@ -25,4 +26,5 @@ int main()
     d.guardGate();
     d.highFivesGuys();
     d.whoAmI();
+    d.attack(str);
 }

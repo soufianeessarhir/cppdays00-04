@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-28 16:39:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-09-28 16:39:02 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/09/28 16:39:02 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/07 11:15:22 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &ob)
 ClapTrap::~ClapTrap(){std::cout<<"defaut destructor is called \n";}
 void ClapTrap::attack(const std::string &target)
 {
-    if(Hit_points)
+    if(Hit_points && Energy_points)
     {
         std::cout<<this->Name<<"attacks " <<target<<" causing "<<this->Attack_damage<<" points of damage!"<<std::endl;
         Energy_points--;
@@ -47,12 +47,15 @@ void ClapTrap::attack(const std::string &target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    std::cout<<"amount of"<<amount<<"is lost because of damage\n";
+    std::cout<<"amount of "<<amount<<" is lost because of damage\n";
     this->Hit_points-= amount;
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-     std::cout<<"winning amount of "<<amount<<" points because of Repairing \n";
-    Hit_points+=amount;
-    Energy_points--;
+    if (Energy_points)
+    {
+        std::cout<<"winning amount of "<<amount<<" points because of Repairing \n";
+        Hit_points+=amount;
+        Energy_points--;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:47:16 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/12/07 09:49:07 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:46:20 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ void Dog::makeSound() const
 {
     delete brain;
     std::cout << "Wouf wouf" << std::endl;
+}
+
+std::string Dog::getType()const
+{
+    return (this->type);
 }
