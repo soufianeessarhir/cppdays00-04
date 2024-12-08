@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sessarhi <sessarhi@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-04 08:52:26 by sessarhi          #+#    #+#             */
-/*   Updated: 2024-12-04 08:52:26 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/12/04 08:52:26 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/12/08 22:23:58 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ int main()
     i->makeSound(); 
     j->makeSound();
     meta->makeSound();
+    delete meta;
+    delete j;
+    delete i;
     return 0;
 }

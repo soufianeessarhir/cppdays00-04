@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 17:09:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/12/08 17:09:34 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/12/08 22:08:07 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ Cure::Cure(const Cure &ob) : AMateria(ob)
 
 Cure &Cure::operator=(const Cure &ob)
 {
-    if (this != &ob)
-    {
-        this->type = ob.type;
-    }
+    (void)ob;
     return (*this);
 }
 
