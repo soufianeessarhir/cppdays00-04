@@ -24,7 +24,7 @@ void replace_acc(std::string to_find ,std::string to_replace,std::string newfile
         str.insert(pos, to_replace);
         pos += to_replace.length();  
     }
-    std::ofstream rp_file((newfile + ".replace").c_str());
+    std::ofstream rp_file((newfile + ".replace"));
     if (rp_file.is_open())
     {
         rp_file<<str;

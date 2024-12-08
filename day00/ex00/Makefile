@@ -1,19 +1,19 @@
-NAME =ex04
+NAME = megaphone
 
-SOURCES =  main.cpp  \
+SOURCES = megaphone.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fno-implicit-templates -D_GLIBCXX_USE_CXX11_ABI=0 
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 RM = rm -f
 
-all: $(NAME)
+all: $(NAME) $(BNAME)
 
 $(NAME): $(OBJECTS) 
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
-%.o: %.cpp  
+%.o: %.cpp 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
