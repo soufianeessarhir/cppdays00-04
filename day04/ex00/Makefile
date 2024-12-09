@@ -1,6 +1,6 @@
 NAME =a.out
 
-SOURCES =  main.cpp Cat.cpp Dog.cpp Animal.cpp \
+SOURCES =  main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
