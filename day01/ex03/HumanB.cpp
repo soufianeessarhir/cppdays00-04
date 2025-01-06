@@ -22,7 +22,10 @@ HumanB::~HumanB(){}
 
 void HumanB::attack()
 {
+    if (weapen)
     std::cout << name << " attacks with their " << (*weapen).getType() << std::endl;
+    std::cout << name << " attacks without weapen "<< std::endl;
+
 }
 
 void HumanB::setWeapon(Weapon &ob)
