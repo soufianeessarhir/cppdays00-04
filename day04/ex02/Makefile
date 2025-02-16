@@ -4,7 +4,7 @@ SOURCES =  main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp WrongAnimal.cpp WrongCa
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-CC = c++
+CC = g++-11
 CFLAGS = -Wall -Wextra -Werror -std=c++98 #-g #-fsanitize=address
 RM = rm -f
 
